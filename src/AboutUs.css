@@ -1,0 +1,303 @@
+/* AboutUs.css */
+.about-us-page {
+  font-family: 'Poppins', sans-serif;
+  color: #3e2d25;
+  line-height: 1.6;
+  background-color: #fdfaf6;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('public/images.jsx/about.jpg')center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.hero-overlay h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #f0c38e;
+}
+
+.hero-overlay p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.hero-overlay button {
+  background: #d29a63;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-overlay button:hover {
+  background: #b87e4b;
+}
+
+/* About Section */
+.about-section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.about-section h2 span {
+  color: #a65f2f;
+}
+
+/* Why Choose Us */
+.why-section {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.why-section h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #5a3e36;
+}
+
+.why-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.why-card {
+  background: #f7f1eb;
+  padding: 25px;
+  border-radius: 10px;
+  width: 260px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  background-color: #f2e6da;
+}
+
+.why-card img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.why-card h4 {
+  margin-bottom: 10px;
+  color: #5a3e36;
+}
+
+/* Product Section */
+.product-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 40px;
+  background-color: #fdfaf6;
+}
+
+.product-image img {
+  width: 280px;
+  border-radius: 50%;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
+.product-info {
+  max-width: 500px;
+}
+
+.product-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #a65f2f;
+}
+
+.product-info p {
+  margin-bottom: 15px;
+}
+
+.product-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.product-info li {
+  margin-bottom: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-highlight {
+    flex-direction: column;
+  }
+
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+}
+/* Testimonials */
+.testimonials-section {
+  background: #f3ede7;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials-section h3 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #5a3e36;
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.testimonial-card {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 300px;
+  min-height: 180px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.testimonial-card span {
+  font-style: italic;
+  font-size: 0.9rem;
+  display: block;
+  color: #ddd;
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 60px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.blog-section h3 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.blog-section h3 span {
+  color: #a65f2f;
+}
+
+.blog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.blog-card {
+  background: #f8f4f0;
+  border-radius: 10px;
+  padding: 15px;
+  width: 260px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.blog-card h4 {
+  color: #5a3e36;
+  margin-bottom: 10px;
+}
+
+.blog-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .testimonials, .blog-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Contact Us Section */
+.contact-us-section {
+  background: #f3ede7;
+  padding: 40px 20px;
+  text-align: center;
+  color: #6b4c3b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-us-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #7a503a;
+}
+
+.contact-us-section p {
+  font-size: 1rem;
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.contact-info {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.contact-info a {
+  color: #a35d27;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
