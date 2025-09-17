@@ -31,21 +31,21 @@ const productsSlice = createSlice({
             ],
 
         NonVeg:[
-             {id:101,  name:"Chicken",                price:200.0,   imageUrl:"public/images.jsx/chicken.jpg",                 description:"Hearty and aromatic chicken curry...."},
-             {id:102,  name:"Mutton",                 price:1500.0,  imageUrl:"public/images.jsx/mutton.jpg",                  description:"Rich in protein, iron, and vitamin B12..."},
-             {id:103,  name:"Fish",                   price:500.0,   imageUrl:"public/images.jsx/fish.jpg",                    description:"High in protein, omega-3 fatty acids..."},
-             {id:104,  name:"Prawns",                 price:700.0,   imageUrl:"public/images.jsx/prawns.jpg",                  description:"Low in calories, high in protein..."},
-             {id:105,  name:"Egg",                    price:150.0,   imageUrl:"public/images.jsx/egg.jpg",                     description:"Nutrient-dense, high-quality proteins..."},
-             {id:106,  name:"Chicken Biryani",        price:600.0,   imageUrl:"public/images.jsx/Chicken Biryani.jpg",         description:"Flavorful  rice dish with tender chicken..."},
-             {id:107,  name:"Egg Bhurji",             price:170.0,   imageUrl:"public/images.jsx/egg bhurji.jpg",              description:"Spiced scrambled eggs with onions, tomatoes..."},
-             {id:108,  name:"Fish Fry",               price:850.0,   imageUrl:"public/images.jsx/fishFried.jpg",               description:"Lightly battered and fried to golden perfection..."},
-             {id:109,  name:"Chicken Fry",            price:900.0,   imageUrl:"public/images.jsx/chickenFried.jpg",            description:"Crispy, flavorful, and juicy fried chicken..."},
-             {id:110,  name:"Egg Biryani",            price:550.0,   imageUrl:"public/images.jsx/eggBiryani.jpg",              description:"Fragrant rice dish with spiced boiled eggs..."},
-             {id:111,  name:"Chicken Tikka",          price:450.0,   imageUrl:"public/images.jsx/chickentikka.jpg",            description:"Marinated chicken pieces grilled to perfection..."},
-             {id:112,  name:"Mutton kabeb ",          price:800.0,   imageUrl:"public/images.jsx/mutton seekh kebab.jpg ",     description:"Spiced minced mutton grilled on skewers..."},
-             {id:113,  name:"Butter Chicken",         price:1300.0,  imageUrl:"public/images.jsx/butterchicken.jpg",           description:"Creamy tomato curry with tender chicken..."},
-             {id:114,  name:"Grilled Fish",           price:1200.0,  imageUrl:"public/images.jsx/grilled.jpg",                 description:"Perfectly seasoned and grilled to perfection..."},
-             {id:115,  name:"Mutton Rogan Josh",      price:1600.0,  imageUrl:"public/images.jsx/rogan josh.jpg",              description:"Aromatic and flavorful mutton curry..."},
+             {id:101,  name:"Chicken",                price:200.0,   imageUrl:"public/images.jsx/chicken.jpg",                 description:"Hearty and aromatic chicken curry"},
+             {id:102,  name:"Mutton",                 price:1500.0,  imageUrl:"public/images.jsx/mutton.jpg",                  description:"Rich in protein, iron, and vitamin B12"},
+             {id:103,  name:"Fish",                   price:500.0,   imageUrl:"public/images.jsx/fish.jpg",                    description:"High in protein, omega-3 fatty acids"},
+             {id:104,  name:"Prawns",                 price:700.0,   imageUrl:"public/images.jsx/prawns.jpg",                  description:"Low in calories, high in protein"},
+             {id:105,  name:"Egg",                    price:150.0,   imageUrl:"public/images.jsx/egg.jpg",                     description:"Nutrient-dense, high-quality proteins"},
+             {id:106,  name:"Chicken Biryani",        price:600.0,   imageUrl:"public/images.jsx/Chicken Biryani.jpg",         description:"Flavorful  rice dish with tender chicken"},
+             {id:107,  name:"Egg Bhurji",             price:170.0,   imageUrl:"public/images.jsx/egg bhurji.jpg",              description:"Spiced scrambled eggs with onions,tomatoes"},
+             {id:108,  name:"Fish Fry",               price:850.0,   imageUrl:"public/images.jsx/fishFried.jpg",               description:"Lightly battered  fried to golden perfection"},
+             {id:109,  name:"Chicken Fry",            price:900.0,   imageUrl:"public/images.jsx/chickenFried.jpg",            description:"Crispy, flavorful, and juicy fried chicken"},
+             {id:110,  name:"Egg Biryani",            price:550.0,   imageUrl:"public/images.jsx/eggBiryani.jpg",              description:"Fragrant rice dish with spiced boiled eggs"},
+             {id:111,  name:"Chicken Tikka",          price:450.0,   imageUrl:"public/images.jsx/chickentikka.jpg",            description:"Marinated chicken pieces grilled to perfection"},
+             {id:112,  name:"Mutton kabeb ",          price:800.0,   imageUrl:"public/images.jsx/mutton seekh kebab.jpg ",     description:"Spiced minced mutton grilled on skewers"},
+             {id:113,  name:"Butter Chicken",         price:1300.0,  imageUrl:"public/images.jsx/butterchicken.jpg",           description:"Creamy tomato curry with tender chicken"},
+             {id:114,  name:"Grilled Fish",           price:1200.0,  imageUrl:"public/images.jsx/grilled.jpg",                 description:"Perfectly seasoned and grilled to perfection"},
+             {id:115,  name:"Mutton Rogan ",          price:1600.0,  imageUrl:"public/images.jsx/rogan josh.jpg",              description:"Aromatic and flavorful mutton curry"},
 
           ],
 
@@ -207,7 +207,9 @@ const userAuthSlice = createSlice({
   name: 'userAuth',
   initialState:{users:[],
                 isAuthenticated:false,
-               currentUser:null},
+                loginError:null,
+               currentUser:null
+              },
   reducers: {
     registerUser: (state, action) => {
       // action.payload should be the new user object
@@ -218,16 +220,20 @@ const userAuthSlice = createSlice({
       state.isAuthenticated = true;
     },
     loginUser: (state, action) => {
-      // action.payload might contain username/password or user object
-      const loginInfo = action.payload;
-      const foundUser = state.users.find(user => user.username === loginInfo.username && user.password === loginInfo.password);
-      if (foundUser) {
-        state.currentUser = foundUser;
-        state.isAuthenticated = true;
-      } else {
-        // you might want to handle login failure, maybe set error
-      }
-    },
+  const { username, password } = action.payload;
+  const foundUser = state.users.find(
+    user => user.username === username && user.password === password
+  );
+  if (foundUser) {
+    state.currentUser = foundUser;
+    state.isAuthenticated = true;
+    state.loginError = null; // reset error
+  } else {
+    state.loginError = "Invalid username or password";
+    state.isAuthenticated = false;
+  }
+},
+
     logoutUser: (state) => {
       state.currentUser = null;
       state.isAuthenticated = false;
@@ -236,6 +242,9 @@ const userAuthSlice = createSlice({
 });
 
 export const { registerUser, loginUser, logoutUser } = userAuthSlice.actions;
+
+
+
 
 
     

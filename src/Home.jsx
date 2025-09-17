@@ -7,6 +7,7 @@ function Home()
     <div className="homepage">
       {/* Hero Section */}
       <section className="hero">
+        
         <div className="hero-text">
           <h1> Where <span>Every</span> Meal Feels Like <span>Home</span></h1>
           <p> Serving delicious homemade-style meals for your loved ones. </p>

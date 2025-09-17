@@ -1,179 +1,182 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* src/App.css
+   Modern, attractive styles for TastySecrets header + nav + search
+   (Works with Bootstrap; your App.jsx already imports this file.)
+*/
+
+/* --- Theme variables --- */
+:root{
+  --brand-color: #0d6efd;        /* primary blue */
+  --accent: #ff7a59;             /* warm accent for CTAs */
+  --muted: #6c757d;
+  --bg: #f8f9fa;
+  --glass: rgba(255,255,255,0.65);
+  --radius: 10px;
+  --shadow-sm: 0 2px 8px rgba(16,24,40,0.06);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* --- Page base --- */
+body {
+  background: linear-gradient(180deg, #ffffff 0%, #f3f6fb 100%);
+  color: #212529;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* --- Top header (brand, search, cart/account) --- */
+.top-header {
+  background: var(--bg);
+  border-bottom: 1px solid rgba(13,110,253,0.06);
+  backdrop-filter: blur(6px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.top-header .container {
+  gap: 0.6rem;
 }
 
-.card {
-  padding: 2em;
+/* Brand */
+.brand-wrapper .navbar-brand,
+.navbar-brand {
+  font-size: 1.45rem;
+  letter-spacing: 0.35px;
+  color: #0b5ed7;
+  padding-right: 0.5rem;
 }
 
-.read-the-docs {
-  color: #888;
-}
-.card-img-top {
+/* Search box (desktop) */
+.header-search {
   width: 100%;
-  height: 200px; /* Adjust to your preferred height */
-  object-fit: cover;
+  max-width: 620px;
 }
-/* src/components/Navbar.css */
-.navbar {
-  background-color: #1f1f1f;
+
+.header-search .form-control {
+  border-radius: 999px;
+  border: 1px solid rgba(33,37,41,0.08);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .18s ease, transform .12s ease;
+}
+
+.header-search .form-control:focus {
+  outline: none;
+  box-shadow: 0 6px 20px rgba(13,110,253,0.12);
+  transform: translateY(-1px);
+  border-color: var(--brand-color);
+}
+
+/* Search button */
+.header-search .btn {
+  border-radius: 999px;
+  padding: 8px 16px;
+  border: 2px solid var(--brand-color);
+  background: transparent;
+  color: var(--brand-color);
+  transition: background .12s ease, color .12s ease, transform .12s ease;
+}
+.header-search .btn:hover {
+  background: var(--brand-color);
   color: white;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  transform: translateY(-1px);
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffc107;
+/* Cart badge */
+.cart-badge {
+  display: inline-block;
+  background: var(--muted);
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  margin-left: 8px;
+  vertical-align: middle;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
-}
-
-.nav-links li {
-  position: relative;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
+/* Right controls (cart/account) */
+.right-controls a,
+.right-controls .nav-link,
+.right-controls .dropdown-toggle {
+  color: #1f2937;
   font-weight: 500;
 }
-
-.dropdown .dropbtn {
-  background: none;
-  border: 1px solid #ffc107;
-  padding: 0.5rem;
-  color: #ffc107;
-  cursor: pointer;
-  border-radius: 5px;
+.right-controls a:hover,
+.right-controls .nav-link:hover {
+  color: var(--brand-color);
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  min-width: 150px;
-  z-index: 1;
-  top: 35px;
-  right: 0;
+/* --- Secondary nav links row --- */
+.navlinks-row {
+  background: linear-gradient(90deg, var(--brand-color), #0b5ed7);
+  box-shadow: 0 3px 12px rgba(13,110,253,0.08);
 }
-
-.dropdown-content a {
+.navlinks-row .nav-link {
+  color: rgba(255,255,255,0.95);
+  padding: 0.55rem 0.9rem;
+  font-weight: 600;
+  transition: color .12s ease, transform .08s ease;
+  border-radius: 6px;
+}
+.navlinks-row .nav-link:hover {
   color: white;
-  padding: 10px;
-  display: block;
-  text-decoration: none;
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.03);
+}
+.navlinks-row .nav-link.active {
+  background: rgba(255,255,255,0.12);
+  box-shadow: inset 0 -3px 0 rgba(255,255,255,0.06);
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-/* src/components/Navbar.css */
-
-.navbar {
-  background-color:rgb(0, 166, 255);
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  height: 90px;
-  position: relative;
+/* Make the collapse toggle button subtle on the blue bar */
+.navlinks-row .navbar-toggler {
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
-.navbar-logo {
+/* --- Responsive tweaks --- */
+@media (max-width: 991px) {
+  .header-search { max-width: 420px; }
+  .brand-wrapper .navbar-brand { font-size: 1.25rem; }
+  .top-header .container { flex-wrap: wrap; gap: 0.5rem; }
+  .right-controls { margin-left: 6px; }
+}
+
+/* Mobile: compact spacing for nav links */
+@media (max-width: 575px) {
+  .header-search { max-width: 100%; }
+  .navlinks-row .nav-link { padding: 0.45rem 0.6rem; font-size: 0.92rem; }
+}
+
+/* --- Cards / content container tweaks (optional, improves look of pages) --- */
+.container.py-4 {
+  max-width: 1200px;
+}
+
+/* --- Utility small touches --- */
+a.navbar-brand, a.navbar-brand:focus { text-decoration: none; }
+.btn:focus, .form-control:focus { outline: none; box-shadow: none; }
+
+/* subtle footer-ish bottom shadow on header area */
+.top-header + .navlinks-row {
+  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
+}
+/* visible action buttons on header */
+.login-btn {
+  --bs-btn-bg: var(--brand-color, #0d6efd);
+  --bs-btn-border-color: var(--brand-color, #0d6efd);
   color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 8px 12px;
+  box-shadow: 0 6px 18px rgba(13,110,253,0.12);
 }
 
-/* Hamburger menu icon - hidden on large screens */
-.hamburger {
-  display: none;
-  color: #fff;
-  font-size: 1.8rem;
-  cursor: pointer;
-  margin-left: auto;
+.signup-btn {
+  border-radius: 10px;
+  padding: 7px 12px;
+  font-weight: 600;
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  margin-left: auto;
-}
-
-.nav-item a {
-  color: #f2f2f2;
-  text-decoration: none;
-  padding: 0 15px;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav-item a:hover {
-  color: #ff9900;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: 60px;
-    left: -100%;
-    width: 100%;
-    background-color: #333;
-    flex-direction: column;
-    transition: left 0.3s ease;
-  }
-
-  .nav-menu.active {
-    left: 0;
-  }
-
-  .nav-item {
-    margin: 15px 0;
-    text-align: center;
-  }
+/* mobile: show dropdown instead of separate buttons */
+@media (max-width: 767px) {
+  .signup-btn.d-none.d-md-inline { display: none !important; }
+  .login-btn { font-size: 0.95rem; padding: 6px 10px; }
 }

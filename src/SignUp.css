@@ -1,0 +1,159 @@
+/* signup.css - external styles for SignUp.jsx
+   Place this file at src/signup.css and ensure SignUp.jsx imports it.
+*/
+
+:root{
+  --primary: #38d091;
+  --accent: #ff7a59;
+  --muted: #6c757d;
+  --card-bg: linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
+  --glass: rgba(255,255,255,0.82);
+}
+
+/* Page background and centering */
+.signup-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 18px;
+  position: relative;
+  background: radial-gradient(1000px 500px at 10% 20%, rgba(13,110,253,0.06), transparent 10%),
+              radial-gradient(800px 400px at 90% 80%, rgba(255,122,89,0.04), transparent 10%),
+              #f6f9ff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Soft decorative shapes */
+.signup-decor-left,
+.signup-decor-right {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.45;
+  z-index: 0;
+}
+.signup-decor-left {
+  left: -60px;
+  top: -30px;
+  background: linear-gradient(135deg, rgba(13,110,253,0.18), rgba(13,110,253,0.06));
+}
+.signup-decor-right {
+  right: -60px;
+  bottom: -40px;
+  background: linear-gradient(135deg, rgba(255,122,89,0.16), rgba(255,122,89,0.04));
+}
+
+/* Card container */
+.signup-container {
+  width: 100%;
+  max-width: 980px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* Card look */
+.signup-card {
+  border: none;
+  border-radius: 14px;
+  padding: 0;
+  background: var(--card-bg);
+  overflow: visible;
+}
+
+/* card body spacing */
+.signup-card .card-body {
+  padding: 28px;
+}
+
+/* Title */
+.signup-card h2 {
+  font-weight: 700;
+  color: #0b5ed7;
+  letter-spacing: -0.2px;
+}
+
+/* form inputs */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid rgba(33,37,41,0.08);
+  padding: 10px 12px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.03);
+}
+
+/* input group icon */
+.input-group-text {
+  background: rgba(0,0,0,0.04);
+  border: none;
+  border-radius: 10px 0 0 10px;
+}
+
+/* password meter */
+.password-meter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.password-meter .meter {
+  width: 120px;
+  height: 8px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.06);
+  overflow: hidden;
+  position: relative;
+}
+.password-meter .meter::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  transition: width .28s ease, background .28s ease;
+}
+.password-meter .meter-label {
+  min-width: 64px;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* meter states */
+.meter-0::after { width: 6%; background: #ff6b6b; }
+.meter-1::after { width: 30%; background: #ff9f43; }
+.meter-2::after { width: 55%; background: #ffd43b; }
+.meter-3::after { width: 78%; background: #8bc34a; }
+.meter-4::after { width: 100%; background: #28a745; }
+
+/* buttons */
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), #1c7e92c0);
+  border: none;
+  box-shadow: 0 8px 20px rgba(13,110,253,0.12);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* small helper text */
+.signup-footer {
+  opacity: 0.9;
+}
+
+/* validation messages inline */
+.form-control.is-invalid, .form-check-input.is-invalid ~ .form-check-label {
+  border-color: #e55353;
+}
+
+/* responsive */
+@media (max-width: 767px) {
+  .signup-card .card-body { padding: 18px; }
+  .header-title { font-size: 1.1rem; }
+  .header-search .form-control { width: 100%; }
+  .signup-container { max-width: 420px; margin: 0 auto; }
+}

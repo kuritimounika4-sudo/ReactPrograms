@@ -37,12 +37,12 @@ function NonVeg(){
          <p>NonVeg  items in  Home of Taste</p>
         {nonVegList.map(nonveg => (
           <div key={nonveg.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-            <div className="card h-60">
+            <div className="card h-100">
              <img
                 src={nonveg.imageUrl}
                 className="card-img-top img-fluid object-fit-contain"
                 alt={nonveg.name}
-                style={{ height: '190px' }} 
+                style={{ height: '200px' }} 
               />
               <div className="card-body d-flex flex-column">
                 <h5 className="card-title text-center text-primary ">{nonveg.name}</h5>

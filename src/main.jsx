@@ -7,6 +7,7 @@ import store from './Store.js'
 import 'react-toastify/dist/ReactToastify.css';
 import './Cart.css';
 
+
 createRoot(document.getElementById('root')).render(
   
   <StrictMode>

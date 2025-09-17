@@ -1,0 +1,56 @@
+/* CartCustom.css */
+
+/* Base container styling */
+.cart-container {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+/* Style for card image */
+.cart-img {
+  max-height: 160px;
+  object-fit: cover;
+}
+
+/* Card appearance */
+.cart-card {
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Card body padding */
+.cart-card .card-body {
+  padding: 16px;
+}
+
+/* Summary card overrides */
+.summary-card {
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* Quick discount buttons hover */
+.summary-card .btn-outline-primary:hover {
+  background-color: #0d6efd; /* Bootstrap primary color */
+  color: #fff;
+}
+
+/* QR section style */
+.qr-section {
+  border: 1px dashed #ced4da;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .cart-img {
+    max-height: 120px;
+  }
+  .summary-card {
+    margin-top: 2rem;
+  }
+}
+
