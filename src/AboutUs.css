@@ -265,39 +265,3 @@
   }
 }
 
-/* Contact Us Section */
-.contact-us-section {
-  background: #f3ede7;
-  padding: 40px 20px;
-  text-align: center;
-  color: #6b4c3b;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.contact-us-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  font-weight: 600;
-  color: #7a503a;
-}
-
-.contact-us-section p {
-  font-size: 1rem;
-  margin: 8px 0;
-  line-height: 1.5;
-}
-
-.contact-info {
-  font-weight: 600;
-  font-size: 1.05rem;
-}
-
-.contact-info a {
-  color: #a35d27;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}

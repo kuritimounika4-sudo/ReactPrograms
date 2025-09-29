@@ -28,7 +28,7 @@ const AboutUs = () => {
 
 “Real Ingredients. Real Taste.”
           </p>
-        <p><em> Home of Taste Team…</em></p>
+        <p><em>  TastySecrets Team…</em></p>
       </section>
 
       {/* Why Choose Us */}
@@ -50,31 +50,6 @@ const AboutUs = () => {
             <h4>Expertly Crafted</h4>
             <p>Each dish is thoughtfully prepared by skilled chefs using time-tested techniques and quality ingredients.</p>
           </div>
-        </div>
-      </section>
-
-      {/* Espresso Blend Highlight */}
-      <section className="product-highlight">
-        <div className="product-image">
-          <img src="public/images.jsx/pizza.jpg" alt="Pizza" />
-        </div>
-        <div className="product-info">
-          <h3>🍝 Signature Pasta Bowl</h3>
-          <p>
-           Rich, hearty, and comforting – our Signature Pasta Bowl is crafted for those who crave bold flavors and homemade goodness in every bite.
-          </p>
-          <p>
-           Made with slow-simmered tomato basil sauce, hand-rolled pasta, and farm-fresh herbs, this dish brings classic Italian comfort straight to your table.
-          </p>
-          <ul>
-            <li><strong>Best For:</strong> Lunch, Dinner, Family Meals</li>
-            <li><strong>Details:</strong></li>
-            <li>- Made with fresh, hand-rolled pasta</li>
-            <li>- Slow-cooked tomato basil sauce</li>
-            <li>-Topped with aged parmesan & herbs</li>
-            <li>- Vegetarian-friendly option available</li>
-            <li>-Price: $13.99 per serving</li>
-          </ul>
         </div>
       </section>
             {/* Testimonials Section */}
@@ -119,10 +94,6 @@ const AboutUs = () => {
       </section>
             {/* Contact Us Section */}
       <section className="contact-us-section">
-        <h3>Contact Us:</h3>
-        <p>We'd Love to Hear from You!<br />
-          Have a question about our products, your order, or anything else? Reach out to us below:
-        </p>
         <p className="contact-info">
           Email: <a href="mailto:support@homeoftastetime.com">support@homeoftastetime.com</a> | Phone: 1-800-123-4567 | Location: 123  Street, Chintal, HYd
         </p>

@@ -1,182 +1,209 @@
-/* src/App.css
-   Modern, attractive styles for TastySecrets header + nav + search
-   (Works with Bootstrap; your App.jsx already imports this file.)
-*/
-
-/* --- Theme variables --- */
-:root{
-  --brand-color: #0d6efd;        /* primary blue */
-  --accent: #ff7a59;             /* warm accent for CTAs */
-  --muted: #6c757d;
-  --bg: #f8f9fa;
-  --glass: rgba(255,255,255,0.65);
-  --radius: 10px;
-  --shadow-sm: 0 2px 8px rgba(16,24,40,0.06);
-}
-
-/* --- Page base --- */
-body {
-  background: linear-gradient(180deg, #ffffff 0%, #f3f6fb 100%);
-  color: #212529;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* --- Top header (brand, search, cart/account) --- */
+/* Normal header */
 .top-header {
-  background: var(--bg);
-  border-bottom: 1px solid rgba(13,110,253,0.06);
-  backdrop-filter: blur(6px);
-}
-
-.top-header .container {
-  gap: 0.6rem;
-}
-
-/* Brand */
-.brand-wrapper .navbar-brand,
-.navbar-brand {
-  font-size: 1.45rem;
-  letter-spacing: 0.35px;
-  color: #0b5ed7;
-  padding-right: 0.5rem;
-}
-
-/* Search box (desktop) */
-.header-search {
-  width: 100%;
-  max-width: 620px;
-}
-
-.header-search .form-control {
-  border-radius: 999px;
-  border: 1px solid rgba(33,37,41,0.08);
-  padding: 10px 14px;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow .18s ease, transform .12s ease;
-}
-
-.header-search .form-control:focus {
-  outline: none;
-  box-shadow: 0 6px 20px rgba(13,110,253,0.12);
-  transform: translateY(-1px);
-  border-color: var(--brand-color);
-}
-
-/* Search button */
-.header-search .btn {
-  border-radius: 999px;
-  padding: 8px 16px;
-  border: 2px solid var(--brand-color);
-  background: transparent;
-  color: var(--brand-color);
-  transition: background .12s ease, color .12s ease, transform .12s ease;
-}
-.header-search .btn:hover {
-  background: var(--brand-color);
+  background: linear-gradient(90deg, #ff7f50, #1e3c72);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: white;
-  transform: translateY(-1px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-/* Cart badge */
-.cart-badge {
-  display: inline-block;
-  background: var(--muted);
-  color: #fff;
-  padding: 3px 9px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  margin-left: 8px;
-  vertical-align: middle;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+/* Shrink effect */
+.top-header.shrink {
+  padding: 8px 24px;
+  background: linear-gradient(90deg, #ff9068, #1e3c72);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Right controls (cart/account) */
-.right-controls a,
-.right-controls .nav-link,
-.right-controls .dropdown-toggle {
-  color: #1f2937;
-  font-weight: 500;
+.brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  transition: font-size 0.3s;
 }
-.right-controls a:hover,
-.right-controls .nav-link:hover {
-  color: var(--brand-color);
+.top-header.shrink .brand {
+  font-size: 1.3rem;
 }
 
-/* --- Secondary nav links row --- */
-.navlinks-row {
-  background: linear-gradient(90deg, var(--brand-color), #0b5ed7);
-  box-shadow: 0 3px 12px rgba(13,110,253,0.08);
+/* Search */
+.search-bar {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 20px;
+  display: flex;
 }
-.navlinks-row .nav-link {
-  color: rgba(255,255,255,0.95);
-  padding: 0.55rem 0.9rem;
-  font-weight: 600;
-  transition: color .12s ease, transform .08s ease;
-  border-radius: 6px;
-}
-.navlinks-row .nav-link:hover {
-  color: white;
-  transform: translateY(-2px);
-  background: rgba(255,255,255,0.03);
-}
-.navlinks-row .nav-link.active {
-  background: rgba(255,255,255,0.12);
-  box-shadow: inset 0 -3px 0 rgba(255,255,255,0.06);
-}
-
-/* Make the collapse toggle button subtle on the blue bar */
-.navlinks-row .navbar-toggler {
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-/* --- Responsive tweaks --- */
-@media (max-width: 991px) {
-  .header-search { max-width: 420px; }
-  .brand-wrapper .navbar-brand { font-size: 1.25rem; }
-  .top-header .container { flex-wrap: wrap; gap: 0.5rem; }
-  .right-controls { margin-left: 6px; }
-}
-
-/* Mobile: compact spacing for nav links */
-@media (max-width: 575px) {
-  .header-search { max-width: 100%; }
-  .navlinks-row .nav-link { padding: 0.45rem 0.6rem; font-size: 0.92rem; }
-}
-
-/* --- Cards / content container tweaks (optional, improves look of pages) --- */
-.container.py-4 {
-  max-width: 1200px;
-}
-
-/* --- Utility small touches --- */
-a.navbar-brand, a.navbar-brand:focus { text-decoration: none; }
-.btn:focus, .form-control:focus { outline: none; box-shadow: none; }
-
-/* subtle footer-ish bottom shadow on header area */
-.top-header + .navlinks-row {
-  box-shadow: 0 6px 18px rgba(2,6,23,0.04);
-}
-/* visible action buttons on header */
-.login-btn {
-  --bs-btn-bg: var(--brand-color, #0d6efd);
-  --bs-btn-border-color: var(--brand-color, #0d6efd);
-  color: #fff;
-  font-weight: 600;
-  border-radius: 10px;
+.search-bar input {
+  flex: 1;
   padding: 8px 12px;
-  box-shadow: 0 6px 18px rgba(13,110,253,0.12);
+  border: none;
+  border-radius: 20px 0 0 20px;
+}
+.search-bar button {
+  padding: 8px 16px;
+  border: none;
+  background: #1e3c72;
+  color: white;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.search-bar button:hover {
+  background: #163060;
 }
 
-.signup-btn {
-  border-radius: 10px;
-  padding: 7px 12px;
+/* Right controls */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cart-link {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
+.cart-link:hover {
+  color: #ffe6d5;
+}
+.cart-badge {
+  background: #ff7f50;
+  color: white;
+  border-radius: 50%;
+  padding: 3px 7px;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+/* Buttons */
+.btn-login,
+.btn-signup,
+.btn-logout {
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
 }
 
-/* mobile: show dropdown instead of separate buttons */
-@media (max-width: 767px) {
-  .signup-btn.d-none.d-md-inline { display: none !important; }
-  .login-btn { font-size: 0.95rem; padding: 6px 10px; }
+.btn-login {
+  background: white;
+  color: #1e3c72;
 }
+.btn-login:hover {
+  background: #ff7f50;
+  color: white;
+}
+
+.btn-signup {
+  background: #ff7f50;
+  color: white;
+}
+.btn-signup:hover {
+  background: #e76e3c;
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+.btn-logout:hover {
+  background: #ff7f50;
+  border-color: #ff7f50;
+}
+
+/* Nav row */
+.nav-row {
+  background: #1e3c72;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px 0;
+  position: sticky;
+  top: 60px; /* Adjust for header */
+  z-index: 999;
+}
+.nav-row a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.nav-row a:hover {
+  color: #ff7f50;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background: linear-gradient(90deg, #146c43, #0f5132);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 25px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Login button */
+.btn-login {
+  background: white;
+  color: #146c43;
+  border: 2px solid white;
+}
+.btn-login:hover {
+  background: #e6f4e6;
+  color: #0f5132;
+}
+
+/* Signup button */
+.btn-signup {
+  background: #ffc107;
+  color: black;
+  border: 2px solid #ffc107;
+}
+.btn-signup:hover {
+  background: #e0a800;
+  color: white;
+}
+
+/* Logout button */
+.btn-logout {
+  background: #dc3545;
+  color: white;
+  border: 2px solid #dc3545;
+}
+.btn-logout:hover {
+  background: #b02a37;
+}
+
+/* Welcome text */
+.welcome-text {
+  font-size: 15px;
+  margin-right: 10px;
+}
+

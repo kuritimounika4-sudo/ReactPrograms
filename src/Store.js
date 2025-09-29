@@ -106,8 +106,7 @@ const productsSlice = createSlice({
               {id:112,  name:"Monster",             price:100.0,    imageUrl:"public/images.jsx/monster.jpg",                    description:"Energy drink with caffeine and taurine..."},
               {id:113,  name:"Mirinda",             price:40.0,     imageUrl:"public/images.jsx/mirinda.jpg",                    description:"Fruit-flavored carbonated drink..."},
               {id:114,  name:"Dr.Pepper",           price:30.0,     imageUrl:"public/images.jsx/pepper.jpg",                     description:"Unique blend of 23 flavors..."},
-              {id:115,  name:"Maaza",               price:50.0,     imageUrl:"public/images.jsx/maaza.jpg",                      description:"Mango-flavored fruit drink..."},
-              {id:116,  name:"7 Up",                price:60.0,     imageUrl:"public/images.jsx/7 up.jpg",                       description:"Lemon-lime flavored clear soda..."},   
+              {id:115,  name:"7 Up",                price:60.0,     imageUrl:"public/images.jsx/7 up.jpg",                       description:"Lemon-lime flavored clear soda..."},   
                   
          ],
 
@@ -138,7 +137,7 @@ const productsSlice = createSlice({
               {id:124,  name:"Raspberry",            price:300.0,   imageUrl:"public/images.jsx/raspberry.jpg",                  description:"Tart berries rich in antioxidants ..."},
               {id:125,  name:"Blackberry",           price:350.0,   imageUrl:"public/images.jsx/blackberry.jpg",                 description:"Juicy berries high in vitamins, antioxidants..."},
               {id:126,  name:"Cranberry",            price:400.0,   imageUrl:"public/images.jsx/cranberry.jpg",                  description:"Tart berries rich in antioxidants ,vitamin C..."},
-              {id:127,  name:"Starfruit",            price:250.0,   imageUrl:"public/images.jsx/strawberries.jpg",               description:"Tart fruit high in vitamin C & antioxidants..."},
+              {id:127,  name:"Strawberry",            price:250.0,   imageUrl:"public/images.jsx/strawberries.jpg",               description:"Tart fruit high in vitamin C & antioxidants..."},
               {id:128,  name:"Durian",               price:500.0,   imageUrl:"public/images.jsx/durian.jpg",                     description:"Large tropical fruit known for its strong odor..."},
 
             ],
@@ -201,47 +200,67 @@ let ordersSlice = createSlice({
 });
 export let {addOrder} = ordersSlice.actions;
 
-
-
-const userAuthSlice = createSlice({
-  name: 'userAuth',
-  initialState:{users:[],
-                isAuthenticated:false,
-                loginError:null,
-               currentUser:null
-              },
+const userSlice = createSlice({
+  name: "userAuth",
+  initialState: {
+    users: [],          // registered users
+    currentUser: null,  // logged-in user
+    isAuthenticated: false,
+    loginError: null,
+  },
   reducers: {
     registerUser: (state, action) => {
-      // action.payload should be the new user object
       const newUser = action.payload;
-      state.users.push(newUser);
-      // optionally auto-set currentUser or isAuthenticated
+
+      // check if user already exists by email
+      const exists = state.users.some(
+        (u) => u.email === newUser.email || u.name === newUser.name
+      );
+
+      if (!exists) {
+        state.users.push(newUser);
+      }
+
       state.currentUser = newUser;
       state.isAuthenticated = true;
+      state.loginError = null;
     },
+
     loginUser: (state, action) => {
-  const { username, password } = action.payload;
-  const foundUser = state.users.find(
-    user => user.username === username && user.password === password
-  );
-  if (foundUser) {
-    state.currentUser = foundUser;
-    state.isAuthenticated = true;
-    state.loginError = null; // reset error
-  } else {
-    state.loginError = "Invalid username or password";
-    state.isAuthenticated = false;
-  }
-},
+      const { username, password } = action.payload;
+
+      const foundUser = state.users.find(
+        (u) =>
+          (u.email === username || u.name === username) &&
+          u.password === password
+      );
+
+      if (foundUser) {
+        state.currentUser = foundUser;
+        state.isAuthenticated = true;
+        state.loginError = null;
+      } else {
+        state.currentUser = null;
+        state.isAuthenticated = false;
+        state.loginError = "Invalid username or password";
+      }
+    },
 
     logoutUser: (state) => {
       state.currentUser = null;
       state.isAuthenticated = false;
-    }
-  }
+      state.loginError = null;
+    },
+  },
 });
 
-export const { registerUser, loginUser, logoutUser } = userAuthSlice.actions;
+
+
+
+   
+
+
+export const { registerUser, loginUser, logoutUser } = userSlice.actions;
 
 
 
@@ -254,7 +273,7 @@ export const { registerUser, loginUser, logoutUser } = userAuthSlice.actions;
         ps:productsSlice.reducer,
         cart:cartSlice.reducer,
         orders:ordersSlice.reducer,
-        authentication:userAuthSlice.reducer,
+        userAuth:userSlice.reducer,
 
     }
     

@@ -73,24 +73,7 @@ function Home()
         </div>
       </section>
 
-      {/* Contact / Location Section */}
-      <section id="contact" className="contact-info">
-        <h2>Contact Us</h2>
-        <div className="contact-details">
-          <div>
-            <h3>Address</h3>
-            <p>123, Food Street, Culinary City, India</p>
-          </div>
-          <div>
-            <h3>Phone</h3>
-            <p>+91 98765 43210</p>
-          </div>
-          <div>
-            <h3>Opening Hours</h3>
-            <p>Mon - Sun: 9:00 AM - 10:00 PM</p>
-          </div>
-        </div>
-      </section>
+     
 
       {/* Footer */}
       <footer className="footer">

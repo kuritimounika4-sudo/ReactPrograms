@@ -1,81 +1,79 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, NavLink } from "react-router-dom";
-import { loginUser } from "./store";
-import Swal from "sweetalert2";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./Login.css"; // ✅ external CSS
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Auth.css";
 
-function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const dispatch = useDispatch();
+function Login()
+ {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const isAuthenticated = useSelector((state) => state.userAuth?.isAuthenticated);
-const loginError = useSelector((state) => state.userAuth?.loginError);
-
-
- const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      Swal.fire({
-        title: "✅ Login Successful",
-        text: "Welcome back!",
-        icon: "success",
-        confirmButtonColor: "#28a745",
-      }).then(() => {
-        navigate("/");
-      });
-    }
-  }, [isAuthenticated, navigate]);
-
-  useEffect(() => {
-    if (loginError) {
-      Swal.fire({
-        title: "❌ Login Failed",
-        text: loginError,
-        icon: "error",
-        confirmButtonColor: "#e74c3c",
-      });
-    }
-  }, [loginError]);
-
- 
-    if (!username || !password) {
-      Swal.fire({
-        title: "⚠ Missing Fields",
-        text: "Please enter both username and password.",
-        icon: "warning",
-        confirmButtonColor: "#f39c12",
-      });
+    if (!email || !password) {
+      setError("⚠️ Please enter email and password.");
       return;
     }
 
-    dispatch(loginUser({ username, password }));
-  };
-  
-  return (
-    <div className="login-page"> {/* ✅ External CSS applied */}
-      <div className="card shadow p-4 login-card">
-        <h2 className="text-center mb-4">🔐 Login</h2>
-        <form onSubmit={handleLogin}>
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (!savedUser) {
+      setError("⚠️ No account found. Please sign up first.");
+      return;
+    }
 
-          <div className="mb-3">
-            <input  type="text" className="form-control"  placeholder="Username"  value={username}  onChange={(e) => setUsername(e.target.value)}  />
+    if (savedUser.email !== email || savedUser.password !== password) {
+      setError("⚠️ Invalid email or password.");
+      return;
+    }
+
+    // ✅ Save logged-in user session
+    localStorage.setItem("loggedInUser", JSON.stringify(savedUser));
+
+    setError("");
+    console.log("✅ Login successful");
+
+    // Navigate to Home
+    navigate("/");
+  };
+
+  return (
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-header">
+          <div className="logo">🌱</div>
+          <h2>Log In</h2>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Email</label>
+            <input  type="email"  placeholder="Enter your email"  value={email}   onChange={(e) => setEmail(e.target.value)}  required />
           </div>
 
-          <div className="mb-3">
-            <input  type="password" className="form-control"  placeholder="Password"  value={password}   onChange={(e) => setPassword(e.target.value)} />
-         </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input  type="password"  placeholder="********"  value={password} onChange={(e) => setPassword(e.target.value)} required />
+          </div>
 
-          <button type="submit" className="btn btn-success w-100">  Login  </button>
-          <p className="text-center mt-3 mb-1">  Don&apos;t have an account?{" "} <NavLink to="/signup" className="text-primary">Sign Up </NavLink>  </p>
-          <p className="text-center"> <NavLink to="/forgot-password" className="text-danger"> Forgot Password? </NavLink> </p>
+          <div className="options">
+            <label> <input type="checkbox" /> Remember me </label>  <a href="/">Forgot password?</a>
+          </div>
+
+          {error && <p className="error-msg">{error}</p>}
+
+          <button type="submit" className="auth-btn">Log In</button>
         </form>
+
+        <p className="divider">Or Sign In with</p>
+           <div className="social-icons">
+             <button className="icon fb">f</button>
+             <button className="icon google">G</button>
+             <button className="icon apple"></button>
+           </div>
+
+        <p className="switch">  Don’t have an account? <Link to="/signup">Sign Up</Link> </p>
       </div>
     </div>
   );

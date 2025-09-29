@@ -1,75 +1,86 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from './Store';
-import { toast, ToastContainer } from 'react-toastify';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "./Store";
+import { toast, ToastContainer } from "react-toastify";
+
+import "./Chocolate.css"; // 🎨 External CSS
 
 function Chocolate() {
-    
-      //Reading the chocolate items from the store
-     let chocolateList =  useSelector(globalState=>globalState.ps.Chocolates);
+  let chocolateList = useSelector((state) => state.ps.Chocolates);
+  let dispatch = useDispatch();
 
-     //Dispatch function to dispatch actions to  store
-     let dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+  const totalPages = Math.ceil(chocolateList.length / itemsPerPage);
 
-     //State for current page in pagination
-     const [currentPage, setCurrentPage] = useState(1);
-     const itemsPerPage = 8;
-      const totalPages = Math.ceil(chocolateList.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  chocolateList = chocolateList.slice(indexOfFirstItem, indexOfLastItem);
 
-      // Calculate the index range for the current page
-      const indexOfLastItem = currentPage * itemsPerPage;
-      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
-      // Get the items for the current page
-      chocolateList = chocolateList.slice(indexOfFirstItem, indexOfLastItem);
-
-      
-      // ✅ handle add to cart + toast
-        const handleAddToCart = (product) => {
-          dispatch(addToCart(product));
-          toast.success(`${product.name} added to cart! 🛒`); // 🎉 Success message
-        };
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    toast.success(`${product.name} added to cart! 🛒`);
+  };
 
   return (
-     <div className="container my-4">
-       <ToastContainer position='top-right' autoClose={2000} theme="colored" />
-      <div className="row mt-4">
-           <p>This is chocolates in  BigBasket final</p>
-        {chocolateList.map(chocolate => (
-          <div key={chocolate.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-            
-            <div className="card h-100">
-              <img
-                src={chocolate.imageUrl}
-                className="card-img-top img-fluid object-fit-contain"
-                alt={chocolate.name}
-                style={{ height: '190px' }} 
-              />
-              <div className="card-body d-flex flex-column">
-              <h5 className="card-title text-center text-primary">{chocolate.name}</h5>
-                <p className="card-text ">{chocolate.description}</p>
-                <p className="card-text text-center"><strong className='text-danger'>₹{chocolate.price}</strong></p>
-                <button className="btn btn-primary mt-auto" onClick={() => {dispatch(addToCart(chocolate));toast.success(`${chocolate.name}  added to cart successfully`)}}>Add To Cart</button>
-              </div>
+    <div className="choco-container">
+      <ToastContainer position="top-right" autoClose={2000} theme="colored" />
+
+      <h2 className="choco-title">🍫 Delicious Chocolates</h2>
+
+      <div className="choco-grid">
+        {chocolateList.map((choco) => (
+          <div key={choco.id} className="choco-card">
+            <img src={choco.imageUrl} alt={choco.name} className="choco-img" />
+            <div className="choco-body">
+              <h3 className="choco-name">{choco.name}</h3>
+              <p className="choco-desc">{choco.description}</p>
+              <p className="choco-price">₹{choco.price}</p>
+              <button
+                className="choco-btn"
+                onClick={() => handleAddToCart(choco)}
+              >
+                Add To Cart
+              </button>
             </div>
           </div>
         ))}
       </div>
-      <div className="d-flex justify-content-center my-3">
-        <button onClick={()=>setCurrentPage(currentPage-1)}disabled={currentPage===1}>Previous</button>
-      {Array.from({ length: totalPages }, (_, index) => index + 1).map(pageNumber => (  
+
+      {/* Pagination */}
+      <div className="pagination">
         <button
-          key={pageNumber}    
-          onClick={() => setCurrentPage(pageNumber)}
-          disabled={currentPage === pageNumber}
-          className={`btn btn-sm mx-1 ${currentPage === pageNumber ? 'btn-primary' : 'btn-outline-primary'}`}
+          className="page-btn"
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
         >
-          {pageNumber}
+          ⬅ Prev
         </button>
-      ))}
-        <button onClick={()=>setCurrentPage(currentPage+1)} disabled={currentPage===totalPages}>Next</button>
+
+        {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+          (pageNumber) => (
+            <button
+              key={pageNumber}
+              className={`page-btn ${
+                currentPage === pageNumber ? "active" : ""
+              }`}
+              onClick={() => setCurrentPage(pageNumber)}
+            >
+              {pageNumber}
+            </button>
+          )
+        )}
+
+        <button
+          className="page-btn"
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next ➡
+        </button>
       </div>
-     </div>
+    </div>
   );
 }
+
 export default Chocolate;
