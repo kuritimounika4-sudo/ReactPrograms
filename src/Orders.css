@@ -71,7 +71,7 @@
 .status-badge.delivered { background: #e6f9ee; color: #1c7c35; }
 .status-badge.processing,
 .status-badge.preparing { background: #fff4e5; color: #a66b00; }
-.status-badge["out for delivery"] { background: #e6f2ff; color: var(--secondary); }
+.status-badge.out-for-delivery { background: #e6f2ff; color: var(--secondary); }
 .status-badge.cancelled { background: #fdeaea; color: #b30000; }
 
 .order-items {
