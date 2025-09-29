@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import { addToCart } from "./store";
+import { addToCart } from './store';
 
 import "./Milk.css"; // <-- external CSS
 

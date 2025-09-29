@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import "./orders.css"; // ✅ styled with orange + dark blue
+import "./Orders.css"; 
 
 export default function Orders() {
   const dispatch = useDispatch();
@@ -136,9 +136,7 @@ export default function Orders() {
                 <p>{selectedOrder.address}</p>
               </>
             )}
-            <button className="btn-secondary" onClick={() => setSelectedOrder(null)}>
-              Close
-            </button>
+            <button className="btn-secondary" onClick={() => setSelectedOrder(null)}>  Close </button>
           </div>
         </div>
       )}

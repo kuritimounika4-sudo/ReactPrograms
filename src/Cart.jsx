@@ -5,7 +5,7 @@ import { addOrder, clearCart, removeFromCart, decreaseQuantity, increaseQuantity
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import QRCode from "react-qr-code";
-import './Cart.css';
+import "./Cart.css";
 
 import { getCouponDiscount } from "./discountUtils";
 
