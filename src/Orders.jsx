@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import './orders.css';
+import './Orders.css';
 
 
 export default function Orders() {
