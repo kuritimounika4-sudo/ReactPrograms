@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Link, NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 // --- Pages (your existing components) ---
 import Home from "./Home";
 import Veg from "./Veg";
@@ -18,7 +17,6 @@ import ContactUs from "./ContactUs";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import NotFound from "./NotFound";
-
 import "./App.css";
 import { Nav } from "react-bootstrap";
 
@@ -81,7 +79,7 @@ const handleSubmit = (e) => {
   return (
     <div className={`top-header ${isShrunk ? "shrink" : ""}`}>
       {/* Brand */}
-      <div className="brand">😋TastySecrets</div>
+      <div className="brand">TastySecrets</div>
 
       {/* Search */}
       <div className="search-bar">
