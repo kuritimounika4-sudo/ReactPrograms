@@ -68,13 +68,7 @@ function NonVeg() {
           )
         )}
 
-        <button
-          className="page-btn"
-          onClick={() => setCurrentPage(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next ➡
-        </button>
+        <button  className="page-btn"  onClick={() => setCurrentPage(currentPage + 1)}  disabled={currentPage === totalPages}> Next ➡ </button>
       </div>
     </div>
   );

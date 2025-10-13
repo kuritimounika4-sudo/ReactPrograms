@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './Store';
 import { toast, ToastContainer } from 'react-toastify';
-
 import './Veg.css'; // <-- external CSS
 
 function Veg() {
