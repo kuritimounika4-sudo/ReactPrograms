@@ -5,7 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import './Veg.css'; // <-- external CSS
 
 function Veg() {
-  let vegList = useSelector((state) => state.ps.Veg);
+  let vegList = useSelector((state) => state.products.Veg);
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = React.useState(1);

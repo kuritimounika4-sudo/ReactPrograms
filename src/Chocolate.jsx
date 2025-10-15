@@ -6,7 +6,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "./Chocolate.css"; // 🎨 External CSS
 
 function Chocolate() {
-  let chocolateList = useSelector((state) => state.ps.Chocolates);
+  let chocolateList = useSelector((state) => state.products.Chocolates);
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);

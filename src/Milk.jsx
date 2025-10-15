@@ -6,7 +6,7 @@ import { addToCart } from './Store';
 import "./Milk.css"; // <-- external CSS
 
 function Milk() {
-  let milkList = useSelector((state) => state.ps.Milk);
+  let milkList = useSelector((state) => state.products.Milk);
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);

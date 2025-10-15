@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./Store";
 import { toast, ToastContainer } from "react-toastify";
-
 import "./Fruits.css"; // <-- external CSS
 
 function Fruits() {
-  let fruitsList = useSelector((state) => state.ps.Fruits);
+  let fruitsList = useSelector((state) => state.products.Fruits);
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);

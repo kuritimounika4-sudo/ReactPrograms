@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "./NonVeg.css"; // <-- external CSS
 
 function NonVeg() {
-  let nonVegList = useSelector((state) => state.ps.NonVeg);
+  let nonVegList = useSelector((state) => state.products.NonVeg);
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
