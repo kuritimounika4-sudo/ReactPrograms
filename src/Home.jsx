@@ -83,7 +83,7 @@ function Home() {
       {/* About Us Section */}
       <section id="about" className="about-us">
         <h2>About Us</h2>
-        <p>  At <strong>TasteSecrets</strong>, we believe in bringing the warmth and comfort of home to every plate. Our recipes are crafted with love, passed down through generations, and made with fresh ingredients and authentic flavors.  </p>
+        <p>  At <strong>TastySecrets</strong>, we believe in bringing the warmth and comfort of home to every plate. Our recipes are crafted with love, passed down through generations, and made with fresh ingredients and authentic flavors.  </p>
       </section>
 
       {/* Testimonials Section */}

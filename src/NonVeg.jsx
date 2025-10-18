@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./Store";
 import { toast, ToastContainer } from "react-toastify";
-import "./NonVeg.css"; // <-- external CSS
+import "./Nonveg.css"; // <-- external CSS
 
 function NonVeg() {
   let nonVegList = useSelector((state) => state.products.NonVeg);
