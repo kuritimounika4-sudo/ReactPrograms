@@ -16,7 +16,7 @@ function Home() {
           <p>  Serving delicious homemade-style meals for your loved ones with a touch of warmth and care. </p>
                 <button className="explore-btn">Explore Menu</button>
         </div>
-        <div className="hero-image">  <img src="public/images.jsx/homepage.jpg" alt="Delicious food" /> </div>
+        <div className="hero-image">  <img src="/images.jsx/homepage.jpg" alt="Delicious food" /> </div>
       </section>
 
       {/* Special Dishes */}
@@ -24,11 +24,11 @@ function Home() {
         <h2>Our Special Dishes</h2>
         <div className="dish-cards">
           {[
-            { img: "public/images.jsx/chickenbir.jpg", name: "Chicken Biryani", price: 600 },
-            { img:"public/images.jsx/mutton seekh kebab.jpg ", name:"Mutton kabeb ", price:800.0},
-            { img: "public/images.jsx/Grilled Chicken.jpg", name: "Grilled Chicken", price: 750 },
-            { img: "public/images.jsx/roasted chicken.jpg", name: "Roasted Chicken", price: 700 },
-            { img: "public/images.jsx/muttonbiryani.jpg", name: "Mutton Biryani", price: 1000 }
+            { img: "/images.jsx/chickenbir.jpg", name: "Chicken Biryani", price: 600 },
+            { img:"/images.jsx/mutton seekh kebab.jpg ", name:"Mutton kabeb ", price:800.0},
+            { img: "/images.jsx/Grilled Chicken.jpg", name: "Grilled Chicken", price: 750 },
+            { img: "/images.jsx/roasted chicken.jpg", name: "Roasted Chicken", price: 700 },
+            { img: "/images.jsx/muttonbiryani.jpg", name: "Mutton Biryani", price: 1000 }
             
 
           ].map((dish, index) => (
