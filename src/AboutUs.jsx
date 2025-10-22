@@ -47,7 +47,7 @@ const AboutUs = () => {
         <h3>Why Choose Us?</h3>
         <div className="why-cards">
           <div className="why-card">
-             <img src="public/images.jsx/leaf.jpg" alt="Sustainably Sourced" />
+             <img src="/images.jsx/leaf.jpg" alt="Sustainably Sourced" />
             <h4>Sustainably Sourced</h4>
             <p>
               We partner with local farmers and trusted suppliers who use
@@ -55,7 +55,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="why-card">
-            <img src="public/images.jsx/fire.jpg" alt="Freshly Roasted" />
+            <img src="/images.jsx/fire.jpg" alt="Freshly Roasted" />
             <h4>Freshly Roasted</h4>
             <p>
               Our ingredients are roasted in small batches to lock in rich
@@ -63,7 +63,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="why-card">
-                   <img src="public/images.jsx/pot.jpg" alt="Expertly Crafted" />
+                   <img src="/images.jsx/pot.jpg" alt="Expertly Crafted" />
             <h4>Expertly Crafted</h4>
             <p>
               Each dish is thoughtfully prepared by skilled chefs using
