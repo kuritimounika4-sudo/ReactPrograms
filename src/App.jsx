@@ -19,6 +19,7 @@ import Login from "./Login";
 import NotFound from "./NotFound";
 import "./App.css";
 import { Nav } from "react-bootstrap";
+import SearchBar from "./SearchBar";
 
 function TopHeader({ cartCount }) {
 
@@ -80,12 +81,14 @@ const handleSubmit = (e) => {
     <div className={`top-header ${isShrunk ? "shrink" : ""}`}>
       {/* Brand */}
       <div className="brand">TastySecrets</div>
+     
+       <div className="home-container">
+      <div className="sticky top-[72px] z-40 bg-white py-4 shadow-md">
+        <SearchBar />
+     </div>
 
-      {/* Search */}
-      <div className="search-bar">
-        <input type="search" placeholder="Search for products..." />
-        <button>Search</button>
-      </div>
+
+    
 
       {/* Right controls */}
       <div className="right-controls">
@@ -109,7 +112,7 @@ const handleSubmit = (e) => {
         </>
       )}
 
-
+          </div>
       </div>
     </div>
   );
@@ -157,6 +160,7 @@ function App() {
           <Route path="/fruits" element={<Fruits />} />
           <Route path="/chocolate" element={<Chocolate />} />
           <Route path="/drinks" element={<Drinks />} />
+          <Route path="/drinks" element={<SearchBar />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/aboutus" element={<AboutUs />} />
