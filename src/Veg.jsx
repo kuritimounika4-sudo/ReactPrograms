@@ -9,7 +9,7 @@ function Veg() {
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = React.useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 12;
   const totalPages = Math.ceil(vegList.length / itemsPerPage);
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -78,6 +78,35 @@ function Veg() {
           Next ➡
         </button>
       </div>
+      {/* 🌿 Get in Touch Section */}
+<section className="veg-contact">
+  <h2>Get in Touch</h2>
+  <p>We’d love to hear from you!</p>
+
+  <div className="veg-contact-cards">
+    <div className="veg-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-phone"></i>
+      </div>
+      <p>+91 98765 43210</p>
+    </div>
+
+    <div className="veg-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-envelope"></i>
+      </div>
+      <p>tastysecrets@gmail.com</p>
+    </div>
+
+    <div className="veg-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-location-dot"></i>
+      </div>
+      <p>123, Food Street, Hyderabad</p>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

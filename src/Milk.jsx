@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { addToCart } from './Store';
-
 import "./Milk.css"; // <-- external CSS
 
 function Milk() {
@@ -10,7 +9,7 @@ function Milk() {
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 12;
   const totalPages = Math.ceil(milkList.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -79,6 +78,35 @@ function Milk() {
           Next ➡
         </button>
       </div>
+      {/* 🥛 Get in Touch Section */}
+<section className="milk-contact">
+  <h2>Get in Touch</h2>
+  <p>We’d love to serve you the freshest dairy delights!</p>
+
+  <div className="milk-contact-cards">
+    <div className="milk-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-phone"></i>
+      </div>
+      <p>+91 98765 43210</p>
+    </div>
+
+    <div className="milk-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-envelope"></i>
+      </div>
+      <p>tastysecrets@gmail.com</p>
+    </div>
+
+    <div className="milk-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-location-dot"></i>
+      </div>
+      <p>123, Food Street, Hyderabad</p>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /* Container */
 .nonveg-container {
-  padding: 30px;
+  padding: 20px;
   background: #fffaf7;
   min-height: 100vh;
   text-align: center;
@@ -8,8 +8,8 @@
 
 /* Title */
 .nonveg-title {
-  font-size: 2rem;
-  margin-bottom: 25px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
   color: #c0392b;
   font-weight: bold;
   text-shadow: 1px 1px 3px #f2d7d5;
@@ -18,60 +18,62 @@
 /* Grid */
 .nonveg-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
 }
 
 /* Card */
 .nonveg-card {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .nonveg-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.15);
 }
 
 .nonveg-img {
   width: 100%;
-  height: 180px;
+  height: 120px;
   object-fit: cover;
 }
 
 .nonveg-body {
-  padding: 15px;
+  padding: 10px;
 }
 
 .nonveg-name {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #d35400;
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 .nonveg-desc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #555;
-  min-height: 40px;
+  min-height: 35px;
 }
 
 .nonveg-price {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   color: #e74c3c;
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
 .nonveg-btn {
   background: #e67e22;
   color: white;
-  padding: 10px 15px;
+  padding: 6px 10px;
   border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: background 0.3s ease;
   width: 100%;
@@ -83,20 +85,21 @@
 
 /* Pagination */
 .pagination {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .page-btn {
   background: #f5f5f5;
   border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 6px 10px;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s ease;
+  font-size: 0.85rem;
 }
 
 .page-btn:hover {
@@ -111,4 +114,82 @@
 .page-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.nonveg-contact {
+  text-align: center;
+  background: linear-gradient(135deg, #fff4f4, #ffffff);
+  padding: 60px 20px;
+  border-top: 2px solid #ffb199;
+}
+
+.nonveg-contact h2 {
+  color: #d84315; /* deep warm red */
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.nonveg-contact p {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.nonveg-contact-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 🔥 Cards */
+.nonveg-contact-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 18px 25px;
+  width: 190px;
+  box-shadow: 0 3px 10px rgba(255, 87, 34, 0.15);
+  transition: all 0.3s ease;
+}
+
+.nonveg-contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(255, 87, 34, 0.25);
+}
+
+/* 🍗 Icon style */
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  background: #ff7043;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px auto;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.nonveg-contact-card:hover .icon-circle {
+  background: #d84315;
+  transform: scale(1.1);
+}
+
+.nonveg-contact-card p {
+  color: #c62828;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .nonveg-contact-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
 }

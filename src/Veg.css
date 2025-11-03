@@ -1,6 +1,6 @@
 /* Container */
 .veg-container {
-  padding: 30px;
+  padding: 25px;
   background: #f9fafc;
   min-height: 100vh;
   text-align: center;
@@ -8,8 +8,8 @@
 
 /* Title */
 .veg-title {
-  font-size: 2rem;
-  margin-bottom: 25px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
   color: #2c3e50;
   font-weight: bold;
   text-shadow: 1px 1px 3px #ddd;
@@ -18,60 +18,60 @@
 /* Grid */
 .veg-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
 }
 
 /* Card */
 .veg-card {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .veg-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 .veg-img {
   width: 100%;
-  height: 180px;
+  height: 130px;
   object-fit: contain;
 }
 
 .veg-body {
-  padding: 15px;
+  padding: 10px;
 }
 
 .veg-name {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #27ae60;
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
 .veg-desc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #555;
-  min-height: 40px;
+  min-height: 35px;
 }
 
 .veg-price {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #e74c3c;
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
 .veg-btn {
   background: #27ae60;
   color: white;
-  padding: 10px 15px;
+  padding: 7px 10px;
   border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: background 0.3s ease;
   width: 100%;
@@ -83,19 +83,20 @@
 
 /* Pagination */
 .pagination {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .page-btn {
   background: #ecf0f1;
   border: none;
-  padding: 8px 14px;
+  padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 0.85rem;
   transition: background 0.3s ease;
 }
 
@@ -111,4 +112,82 @@
 .page-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+.veg-contact {
+  text-align: center;
+  background: linear-gradient(135deg, #f0fff4, #ffffff);
+  padding: 60px 20px;
+  border-top: 2px solid #a5d6a7;
+}
+
+.veg-contact h2 {
+  color: #2e7d32; /* Deep green */
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.veg-contact p {
+  color: #4e4e4e;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.veg-contact-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 🌿 Individual contact cards */
+.veg-contact-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 18px 25px;
+  width: 190px;
+  box-shadow: 0 3px 10px rgba(76, 175, 80, 0.15);
+  transition: all 0.3s ease;
+}
+
+.veg-contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(76, 175, 80, 0.25);
+}
+
+/* 🌱 Icon design */
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  background: #66bb6a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px auto;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.veg-contact-card:hover .icon-circle {
+  background: #388e3c;
+  transform: scale(1.1);
+}
+
+.veg-contact-card p {
+  color: #2e7d32;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* 🌿 Responsive */
+@media (max-width: 768px) {
+  .veg-contact-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
 }

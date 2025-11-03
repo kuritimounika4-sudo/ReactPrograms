@@ -146,25 +146,177 @@
   cursor: pointer;
 }
 
-/* Payment */
-.payment-methods button {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+/* ===== PAYMENT SECTION ===== */
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
+/* Buttons for QR / Card / COD */
+.btn-outline {
+  background: #fff;
+  border: 2px solid #ff7043;
+  color: #ff7043;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: #ff7043;
+  color: #fff;
+}
+
+.btn-selected {
+  background: #ff7043;
+  color: #fff;
+  border: 2px solid #ff7043;
+}
+
+/* ===== QR PAYMENT ===== */
 .qr-section {
   text-align: center;
-  margin: 15px 0;
+  background: #fff7f2;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 350px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-.cod-note {
-  color: #555;
-  font-style: italic;
+.qr-section h6 {
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
+
+.qr-section p {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* ===== CARD PAYMENT ===== */
+.card-payment {
+  background: #fff7f2;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  max-width: 350px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.card-payment h6 {
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.card-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  outline: none;
+  font-size: 0.9rem;
+  transition: border 0.3s ease;
+}
+
+.card-form input:focus {
+  border-color: #ff7043;
+}
+
+.card-details {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-pay {
+  background: #ff7043;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-pay:hover {
+  background: #e55c2c;
+}
+
+/* ===== COD PAYMENT ===== */
+.cod-note {
+  text-align: center;
+  background: #fff7f2;
+  border: 1.5px solid #ffccbc;
+  color: #444;
+  padding: 12px;
+  border-radius: 10px;
+  max-width: 350px;
+  margin: 15px auto 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ===== PAYMENT SUCCESS ===== */
+.payment-success {
+  margin-top: 15px;
+  background: #e8f5e9;
+  border: 1.5px solid #4caf50;
+  color: #2e7d32;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.payment-success i {
+  color: #4caf50;
+  font-size: 1.1rem;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .btn-outline, .btn-selected {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .card-payment,
+  .qr-section,
+  .cod-note {
+    width: 90%;
+  }
+}
+
 
 /* Email */
 .email-input {

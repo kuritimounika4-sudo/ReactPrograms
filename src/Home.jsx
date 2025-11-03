@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import Aos from "aos";
-
-
+import { motion, useAnimation } from "framer-motion";
 
 function Home() {
 
   useEffect(() => {
     Aos.init({ duration: 1000, once: true });
   }, []);
+  const controls = useAnimation();
+
 
   return (
     
@@ -22,29 +23,64 @@ function Home() {
         </div>
         <div className="hero-image">  <img src="/images.jsx/homepage.jpg" alt="Delicious food" /> </div>
       </section>
+  
 
-      {/* Special Dishes */}
-      <section className="special-dishes">
-        <h2>Our Special Dishes</h2>
-        <div className="dish-cards">
-          {[
-            { img: "/images.jsx/chickenbir.jpg", name: "Chicken Biryani", price: 600 },
-            { img:"/images.jsx/mutton seekh kebab.jpg ", name:"Mutton kabeb ", price:800.0},
-            { img: "/images.jsx/Grilled Chicken.jpg", name: "Grilled Chicken", price: 750 },
-            { img: "/images.jsx/roasted chicken.jpg", name: "Roasted Chicken", price: 700 },
-            { img: "/images.jsx/muttonbiryani.jpg", name: "Mutton Biryani", price: 1000 }
-            
+  {/* 🌟 Special  Dishes Section */}
+  <section className="special-dishes">
+  <h2>Our Special Dishes</h2>
+  <motion.div
+    className="dish-cards"
+    animate={{ x: ["0%", "-100%"] }}
+    transition={{
+      ease: "linear",
+      duration: 30,
+      repeat: Infinity,
+    }}
+  >
+    {[
+      { img: "/images.jsx/chickenbir.jpg", name: "Chicken Biryani", price: 600 },
+      { img: "/images.jsx/mutton seekh kebab.jpg", name: "Mutton Kebab", price: 800 },
+      { img: "/images.jsx/Grilled Chicken.jpg", name: "Grilled Chicken", price: 750 },
+      { img: "/images.jsx/roasted chicken.jpg", name: "Roasted Chicken", price: 700 },
+      { img: "/images.jsx/muttonbiryani.jpg", name: "Mutton Biryani", price: 1000 },
+      { img: "/images.jsx/Paneer Tikka.jpg", name: "Paneer Tikka", price: 400 },
+      { img: "/images.jsx/veg biryani.jpg", name: "Chicken Biryani", price: 350 },
+      { img: "/images.jsx/pasta bowl.jpg", name: "Pasta Bowl", price: 450 },
+    ].map((dish, index) => (
+      <div key={index} className="dish-card">
+        <img src={dish.img} alt={dish.name} />
+        <h3>{dish.name}</h3>
+        <p>₹{dish.price}</p>
+        <button>Add to Cart</button>
+      </div>
+    ))}
+  </motion.div>
+</section>
 
-          ].map((dish, index) => (
-            <div className="dish-card" key={index}>
-              <img src={dish.img} alt={dish.name} />
-              <h3>{dish.name}</h3>
-              <p>₹{dish.price}</p>
-              <button>Add to Cart</button>
-            </div>
-          ))}
+  
+   {/* 🌟 Special Offers Section */}
+<section className="special-offers">
+  <h2 data-aos="fade-up">Special Offers</h2>
+
+  <div className="offer-grid">
+    {[
+      { img: "/images.jsx/chicken+grilled.jpg", title: "Weekend Combo", tag: "Limited Time" },
+      { img: "/images.jsx/pizza.jpg",           title: "Family Feast", tag: "Save 25%" },
+      { img: "/images.jsx/pasta bowl.jpg",       title: "Pasta Deal",   tag: "Hot Deal" },
+      { img: "/images.jsx/thumbs up.jpg",       title: "Free Drinks", tag: "Today Only" },
+      { img: "/images.jsx/chocolates.jpg",        title: "Chocolates",  tag: "New!" },
+      { img: "/images.jsx/mutton seekh kebab.jpg",        title: "Lunch Box Offer", tag: "Save 30%" }
+    ].map((offer, index) => (
+      <div key={index} className="offer-bubble">
+        <div className="bubble-img">
+          <img src={offer.img} alt={offer.title} />
         </div>
-      </section>
+        <span className="bubble-tag">{offer.tag}</span>
+        <p className="bubble-title">{offer.title}</p>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* 🌟 Why Choose Us Section */}
       <section className="why-choose-us">

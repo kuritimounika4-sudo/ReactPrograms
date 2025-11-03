@@ -1,122 +1,227 @@
-
-import React from 'react';
-import './AboutUs.css';
+import React, { useEffect } from "react";
+import "./AboutUs.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const AboutUs = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: true });
+  }, []);
+
+  const teamMembers = [
+    { img: "/images.jsx/chef1.jpg", name: "Chef Arjun", role: "Head Chef" },
+    { img: "/images.jsx/chef2.jpg", name: "Chef Riya", role: "Pastry Expert" },
+    { img: "/images.jsx/chef3.jpg", name: "Chef Dev", role: "Food Stylist" },
+  ];
+
+  const testimonials = [
+    {
+      img: "/images.jsx/user1.jpg",
+      name: "Sneha Rao",
+      review:
+        "Absolutely love the flavors! Feels like homemade food every time I order.",
+      rating: 5,
+    },
+    {
+      img: "/images.jsx/user2.jpg",
+      name: "Rahul Verma",
+      review: "Best biryani I’ve ever had. Fresh, spicy, and perfectly balanced!",
+      rating: 4,
+    },
+    {
+      img: "/images.jsx/user3.jpg",
+      name: "Anjali Mehta",
+      review:
+        "The desserts are to die for. TastySecrets is my go-to comfort food brand!",
+      rating: 5,
+    },
+    {
+      img: "/images.jsx/user4.jpg",
+      name: "Kiran Das",
+      review:
+        "Super fast delivery and the food quality is always top-notch. Highly recommend!",
+      rating: 5,
+    },
+  ];
+
   return (
     <div className="about-us-page">
-      
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-overlay">
-          <h1>Food Delivered to Your Door</h1>
-          <p>
-            Join our Home Food Club and get your favorite dishes delivered
-            right to your doorstep on your schedule.
-          </p>
-          <button className="shop-btn">Shop Now</button>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="about-section">
-        <h2>
-          About Us <span>Our Story</span>
-        </h2>
+      {/* 🌟 Hero Section */}
+      <section className="about-hero" data-aos="fade-down">
+        <h1>
+          About <span>TastySecrets</span>
+        </h1>
         <p>
-          At <strong>Food Time</strong>, we believe good food brings people
-          together. From fresh, locally sourced ingredients to time-honored
-          recipes, every dish is crafted to delight your taste buds.
-        </p>
-        <p>
-          Our mission is simple: Whether you're dining in or ordering out —
-          we’re here to serve comfort, flavor, and happiness on every plate.
-        </p>
-        <ul className="motto-list">
-          <li>“Flavors that Feel Like Home.”</li>
-          <li>“Where Every Bite Tells a Story.”</li>
-          <li>“Real Ingredients. Real Taste.”</li>
-        </ul>
-        <p>
-          <em>— The TastySecrets Team</em>
+          Creating delicious memories — one plate at a time. Taste the love,
+          passion, and creativity behind every dish.
         </p>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="why-section">
-        <h3>Why Choose Us?</h3>
-        <div className="why-cards">
-          <div className="why-card">
-             <img src="/images.jsx/leaf.jpg" alt="Sustainably Sourced" />
-            <h4>Sustainably Sourced</h4>
-            <p>
-              We partner with local farmers and trusted suppliers who use
-              ethical and eco-friendly practices.
-            </p>
-          </div>
-          <div className="why-card">
-            <img src="/images.jsx/fire.jpg" alt="Freshly Roasted" />
-            <h4>Freshly Roasted</h4>
-            <p>
-              Our ingredients are roasted in small batches to lock in rich
-              flavors and served fresh every time.
-            </p>
-          </div>
-          <div className="why-card">
-                   <img src="/images.jsx/pot.jpg" alt="Expertly Crafted" />
-            <h4>Expertly Crafted</h4>
-            <p>
-              Each dish is thoughtfully prepared by skilled chefs using
-              time-tested techniques and premium ingredients.
-            </p>
-          </div>
-        </div>
-      </section>
+     <section className="about-us-section">
+  <div className="about-container">
+    <div className="about-image" data-aos="fade-right">
+      <img src="/images.jsx/ourfood.jpg" alt="About Our Food" />
+    </div>
 
-      {/* Blog Section */}
-      <section className="blog-section">
-        <h3>
-          Read Our <span>Latest Blog</span>
-        </h3>
-        <div className="blog-cards">
-          <div className="blog-card">
-            <h4>🍴 Foodie Haven</h4>
+    <div className="about-content" data-aos="fade-left">
+      <h2>Our Story</h2>
+      <p>
+        Welcome to <strong>TastySecrets</strong> — where every meal tells a story!
+        We started as a small kitchen in Hyderabad with one dream: to
+        bring homemade taste to every food lover. From our signature
+        biryanis to our delightful desserts, we cook with heart and
+        creativity.
+      </p>
+      <p>
+        Every dish we serve celebrates India’s rich culinary culture
+        blended with modern fusion. We source fresh ingredients from
+        trusted local farms and prepare everything daily to ensure the
+        perfect bite every time.
+      </p>
+      <button className="learn-more-btn">Explore Our Menu</button>
+    </div>
+  </div>
+</section>
+
+
+      {/* 🎯 Mission & Vision */}
+      <section className="mission-vision" data-aos="fade-up">
+        <h2>Our Mission & Vision</h2>
+        <div className="mv-container">
+          <div className="mv-card">
+            <img src="/images.jsx/ourmission.jpg" alt="Mission" />
+            <h4>Our Mission</h4>
             <p>
-              Discover recipes, cooking tips, and mouth-watering stories for
-              passionate food lovers.
+              To deliver happiness through great food and warm service-
+              making every meal a memory.
             </p>
           </div>
-          <div className="blog-card">
-            <h4>🍅 Fresh Ingredients</h4>
+          <div className="mv-card">
+            <img src="/images.jsx/ourvision.jpg" alt="Vision" />
+            <h4>Our Vision</h4>
             <p>
-              Get expert insights into seasonal produce and how to choose the
-              best quality ingredients.
+              To be India’s most loved home-style food brand, known for taste,
+              trust, and innovation.
             </p>
           </div>
-          <div className="blog-card">
-            <h4>🍳 Cooking Tips</h4>
+          <div className="mv-card">
+            <img src="/images.jsx/ourvalues.jpg" alt="Values" />
+            <h4>Our Values</h4>
             <p>
-              Learn how to cook like a pro with our step-by-step guides, kitchen
-              hacks, and recipe reviews.
+              Freshness, passion, sustainability, and a constant drive to bring
+              joy to our customers.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Us Section */}
-      <section className="contact-us-section">
-        <p className="contact-info">
-          Email:{' '}
-          <a href="mailto:support@homeoftastetime.com">
-            support@homeoftastetime.com
-          </a>{' '}
-          | Phone: 1-800-123-4567 | Location: 123 Street, Chintal, Hyderabad
-        </p>
+      {/* ❤️ Why People Love Us */}
+      <section className="about-highlights" data-aos="fade-up">
+        <h3>Why People Love Us</h3>
+        <div className="highlight-cards">
+          <div className="highlight-card">
+                  <img src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Fresh Ingredients" />
+            <h4>Always Fresh</h4>
+            <p>We handpick ingredients daily for the best taste.</p>
+          </div>
+          <div className="highlight-card">
+          <img src="https://cdn-icons-png.flaticon.com/512/4814/4814268.png" alt="Fast Delivery" />
+            <h4>Fast Delivery</h4>
+            <p>Hot and fresh meals at your doorstep in minutes.</p>
+          </div>
+          <div className="highlight-card">
+  <img src="https://cdn-icons-png.flaticon.com/512/633/633759.png" alt="Customer Love" />
+            <h4>Homemade Love</h4>
+            <p>Cooked with care — just like your mom would.</p>
+          </div>
+           <div className="highlight-card">
+           <img src="https://cdn-icons-png.flaticon.com/512/3159/3159066.png" alt="Affordable Prices" />
+              <h4>Affordable Prices</h4>
+               <p>Restaurant-quality meals at pocket-friendly prices </p>
+              </div>
+        </div>
       </section>
+
+      {/* 👨‍🍳 Meet Our Team */}
+      <section className="team-section" data-aos="fade-up">
+        <h2>Meet Our Chefs</h2>
+        <div className="team-container">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="team-card">
+              <img src={member.img} alt={member.name} />
+              <h4>{member.name}</h4>
+              <p>{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ⭐ Testimonials */}
+      <section className="testimonials-section" data-aos="fade-up">
+        <h2>What Our Customers Say</h2>
+        <div className="testimonials-slider">
+          <div className="testimonials-track">
+            {testimonials.concat(testimonials).map((t, i) => (
+              <div key={i} className="testimonial-card">
+                <img src={t.img} alt={t.name} className="testimonial-img" />
+                <p className="testimonial-review">“{t.review}”</p>
+                <div className="testimonial-rating">
+                  {"⭐".repeat(t.rating)}
+                </div>
+                <span className="testimonial-name">– {t.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* ✨ Get in Touch Section */}
+<section className="contact-elegant" data-aos="fade-up">
+  <h2>Get in Touch</h2>
+  <p className="contact-tagline">We’d love to hear from you!</p>
+
+  <div className="contact-columns">
+    {/* Left side - Store info */}
+    <div className="contact-left">
+      <h3>TastySecrets Restaurant</h3>
+      <p>
+        Serving happiness with every bite! <br />
+        Visit us for fresh, home-style meals made with love.
+      </p>
+      <p className="contact-quote">“Good food, great memories.”</p>
+    </div>
+
+    {/* Right side - Contact info */}
+    <div className="contact-right">
+      <div>
+        <i className="fas fa-phone-alt"></i>
+        <span>+91 98765 43210</span>
+      </div>
+      <div>
+        <i className="fas fa-envelope"></i>
+        <span>tastysecrets@gmail.com</span>
+      </div>
+      <div>
+        <i className="fas fa-map-marker-alt"></i>
+        <span>123, Food Street, Hyderabad, India</span>
+      </div>
+      <div>
+        <i className="fas fa-clock"></i>
+        <span>Mon–Sun: 10 AM – 10 PM</span>
+      </div>
+
+      {/* 🌐 Social Media Links */}
+      <div className="social-links">
+        <a href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a>
+        <a href="http://instagram.com/?hl=en"><i className="fab fa-instagram"></i></a>
+        <a href="https://x.com/"><i className="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/"><i className="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };
 
 export default AboutUs;
-
- 

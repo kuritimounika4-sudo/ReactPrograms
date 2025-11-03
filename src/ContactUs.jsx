@@ -33,13 +33,13 @@ function ContactUs() {
           <div className="info-card">
             <FaEnvelope className="icon" />
             <h3>Email</h3>
-            <p>support@tastysecrets.com</p>
+            <p>tastysecrets@gmail.com</p>
           </div>
 
           <div className="info-card">
             <FaStore className="icon" />
             <h3>Our Shop</h3>
-            <p>123 Food Street, Culinary City, India</p>
+            <p>123 Food Street,Hyderabad</p>
           </div>
         </div>
 
@@ -88,9 +88,9 @@ function ContactUs() {
         </div>
         <div className="footer-contact">
           <h3>Get In Touch</h3>
-          <p>123 Food Street, Culinary City, India</p>
+          <p>123 Food Street,Hyderabad</p>
           <p>+91 98765 43210</p>
-          <p>support@tastysecrets.com</p>
+          <p>tastysecrets@gmail.com</p>
         </div>
       </footer>
     </div>

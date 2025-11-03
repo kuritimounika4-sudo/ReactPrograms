@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./Store";
 import { toast, ToastContainer } from "react-toastify";
-
 import "./Chocolate.css"; // 🎨 External CSS
 
 function Chocolate() {
@@ -10,7 +9,7 @@ function Chocolate() {
   let dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 12;
   const totalPages = Math.ceil(chocolateList.length / itemsPerPage);
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -79,6 +78,35 @@ function Chocolate() {
           Next ➡
         </button>
       </div>
+      {/* 🍫 Get in Touch Section */}
+<section className="choco-contact">
+  <h2>Get in Touch</h2>
+  <p>We’d love to share our sweetest treats with you!</p>
+
+  <div className="choco-contact-cards">
+    <div className="choco-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-phone"></i>
+      </div>
+      <p>+91 98765 43210</p>
+    </div>
+
+    <div className="choco-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-envelope"></i>
+      </div>
+      <p>tastysecrets@gmail.com</p>
+    </div>
+
+    <div className="choco-contact-card">
+      <div className="icon-circle">
+        <i className="fa-solid fa-location-dot"></i>
+      </div>
+      <p>123, Food Street, Hyderabad</p>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

@@ -13,6 +13,8 @@ function Cart() {
   const cartItems = useSelector((state) => state.cart || []);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
+
 
   const [buttonDiscount, setButtonDiscount] = useState(0);
   const [couponCode, setCouponCode] = useState("");
@@ -139,25 +141,77 @@ function Cart() {
             <button onClick={handleApplyCoupon}>Apply</button>
           </div>
 
-          {/* Payment */}
-          <h5>💳 Payment Method</h5>
-          <div className="payment-methods">
-            <button className={paymentMethod === "qr" ? "btn-selected" : "btn-outline"} onClick={() => setPaymentMethod("qr")}>QR Code</button>
-            <button className={paymentMethod === "card" ? "btn-selected" : "btn-outline"} onClick={() => setPaymentMethod("card")}>Card</button>
-            <button className={paymentMethod === "cod" ? "btn-selected" : "btn-outline"} onClick={() => setPaymentMethod("cod")}>Cash on Delivery</button>
-          </div>
+          
+          {/* 💳 Payment Method */}
+<h5>💳 Payment Method</h5>
+<div className="payment-methods">
+  <button
+    className={paymentMethod === "qr" ? "btn-selected" : "btn-outline"}
+    onClick={() => setPaymentMethod("qr")}
+  >
+    QR Code
+  </button>
+  <button
+    className={paymentMethod === "card" ? "btn-selected" : "btn-outline"}
+    onClick={() => setPaymentMethod("card")}
+  >
+    Card
+  </button>
+  <button
+    className={paymentMethod === "cod" ? "btn-selected" : "btn-outline"}
+    onClick={() => setPaymentMethod("cod")}
+  >
+    Cash on Delivery
+  </button>
+</div>
 
-          {paymentMethod === "qr" && (
-            <div className="qr-section">
-              <h6>Scan UPI QR to pay ₹{finalPrice.toFixed(2)}</h6>
-              <QRCode value={`upi://pay?pa=your-upi-id@bank&pn=Mystore&am=${finalPrice.toFixed(2)}&cu=INR`} size={180} />
-              <p><strong>UPI ID: your-upi-id@bank</strong></p>
-            </div>
-          )}
+{/* 🧾 QR Payment */}
+{paymentMethod === "qr" && (
+  <div className="qr-section">
+    <h6>Scan UPI QR to pay ₹{finalPrice.toFixed(2)}</h6>
+    <QRCode
+      value={`upi://pay?pa=your-upi-id@bank&pn=Mystore&am=${finalPrice.toFixed(2)}&cu=INR`} size={180} /> 
+      <p><strong>UPI ID: your-upi-id@bank</strong></p>
+  </div>
+)}
 
-          {paymentMethod === "cod" && (
-            <p className="cod-note">Pay ₹{finalPrice.toFixed(2)} at delivery</p>
-          )}
+{/* 💳 Card Payment */}
+{paymentMethod === "card" && (
+  <div className="card-payment">
+    <h6>Enter Card Details</h6>
+    <form
+      className="card-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        setPaymentSuccess(true);
+        setTimeout(() => setPaymentSuccess(false), 3000);
+      }}
+    >
+      <input type="text" placeholder="Cardholder Name" required />
+      <input type="text" placeholder="Card Number" maxLength="16" required />
+      <div className="card-details">
+        <input type="text" placeholder="MM/YY" maxLength="5" required />
+        <input type="password" placeholder="CVV" maxLength="3" required />
+      </div>
+      <button type="submit" className="btn-pay">
+        Pay ₹{finalPrice.toFixed(2)}
+      </button>
+    </form>
+
+    {paymentSuccess && (
+      <div className="payment-success">
+        <i className="fa-solid fa-circle-check"></i>
+        <p>Payment Successful! 🎉</p>
+      </div>
+    )}
+  </div>
+)}
+
+{/* 💵 COD */}
+{paymentMethod === "cod" && (
+  <p className="cod-note">Pay ₹{finalPrice.toFixed(2)} at delivery</p>
+)}
+
 
           {/* Email */}
           <h5>📧 Email</h5>

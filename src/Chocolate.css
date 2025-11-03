@@ -1,6 +1,6 @@
 /* Container */
 .choco-container {
-  padding: 30px;
+  padding: 20px;
   background: #fff8f2;
   min-height: 100vh;
   text-align: center;
@@ -8,8 +8,8 @@
 
 /* Title */
 .choco-title {
-  font-size: 2rem;
-  margin-bottom: 25px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
   color: #6b3e26;
   font-weight: bold;
   text-shadow: 1px 1px 3px #e6b89c;
@@ -18,62 +18,64 @@
 /* Grid */
 .choco-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
 }
 
 /* Card */
 .choco-card {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  max-width: 200px;
+  margin: 0 auto;
 }
 
 .choco-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.2);
 }
 
 .choco-img {
   width: 100%;
-  height: 180px;
+  height: 120px;
   object-fit: contain;
 }
 
 /* Body */
 .choco-body {
-  padding: 15px;
+  padding: 10px;
 }
 
 .choco-name {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #4e342e;
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 .choco-desc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #555;
-  min-height: 40px;
+  min-height: 35px;
 }
 
 .choco-price {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: bold;
   color: #d35400;
-  margin: 8px 0;
+  margin: 5px 0;
 }
 
 /* Button */
 .choco-btn {
   background: #8e4b2f;
   color: white;
-  padding: 10px 15px;
+  padding: 6px 10px;
   border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: background 0.3s ease;
   width: 100%;
@@ -85,20 +87,21 @@
 
 /* Pagination */
 .pagination {
-  margin-top: 30px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .page-btn {
   background: #f5e4d3;
   border: none;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 6px 10px;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s ease;
+  font-size: 0.85rem;
 }
 
 .page-btn:hover {
@@ -113,4 +116,110 @@
 .page-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Responsive break-points */
+@media (max-width: 1200px) {
+  .choco-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .choco-card {
+    max-width: 180px;
+  }
+  .choco-img {
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .choco-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .choco-card {
+    max-width: none;
+    margin: 0 auto;
+  }
+  .choco-img {
+    height: 90px;
+  }
+}
+.choco-contact {
+  text-align: center;
+  background: linear-gradient(135deg, #fffaf5, #f7e1c3);
+  padding: 60px 20px;
+  border-top: 2px solid #d7b38c;
+}
+
+.choco-contact h2 {
+  color: #5d4037;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.choco-contact p {
+  color: #6d4c41;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* 🍫 Contact Cards */
+.choco-contact-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.choco-contact-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 18px 25px;
+  width: 190px;
+  box-shadow: 0 3px 10px rgba(93, 64, 55, 0.15);
+  transition: all 0.3s ease;
+}
+
+.choco-contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(93, 64, 55, 0.25);
+}
+
+/* 🍩 Icon Circle */
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  background: #8d6e63;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px auto;
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.choco-contact-card:hover .icon-circle {
+  background: #5d4037;
+  transform: scale(1.1);
+}
+
+.choco-contact-card p {
+  color: #4e342e;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .choco-contact-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
 }

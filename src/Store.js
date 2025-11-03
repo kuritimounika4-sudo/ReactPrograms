@@ -40,10 +40,10 @@ const productsSlice = createSlice({
              {id:109,  name:"Chicken Fry",            price:900.0,   imageUrl:"/images.jsx/chickenFried.jpg",            description:"Crispy, flavorful, and juicy fried chicken"},
              {id:110,  name:"Egg Biryani",            price:550.0,   imageUrl:"/images.jsx/eggBiryani.jpg",              description:"Fragrant rice dish with spiced boiled eggs"},
              {id:111,  name:"Chicken Tikka",          price:450.0,   imageUrl:"/images.jsx/chickentikka.jpg",            description:"Marinated chicken pieces grilled to perfection"},
-             {id:112,  name:"Mutton kabeb ",          price:800.0,   imageUrl:"/images.jsx/muttonseekhkebab.jpg ",     description:"Spiced minced mutton grilled on skewers"},
+             {id:112,  name:"Mutton kabeb ",          price:800.0,   imageUrl:"/images.jsx/mutton seekh kebab.jpg",     description:"Spiced minced mutton grilled on skewers"},
              {id:113,  name:"Butter Chicken",         price:1300.0,  imageUrl:"/images.jsx/butterchicken.jpg",           description:"Creamy tomato curry with tender chicken"},
              {id:114,  name:"Grilled Fish",           price:1200.0,  imageUrl:"/images.jsx/grilled.jpg",                 description:"Perfectly seasoned and grilled to perfection"},
-             {id:115,  name:"Mutton Rogan ",          price:1600.0,  imageUrl:"/images.jsx/roganjosh.jpg",              description:"Aromatic and flavorful mutton curry"},
+             {id:115,  name:"Mutton Rogan ",          price:1600.0,  imageUrl:"/images.jsx/rogan josh.jpg",              description:"Aromatic and flavorful mutton curry"},
 
           ],
 
